@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nextract-config
+  labels:
+    app: myapplication
+data:
+  nexctract_config.json:
+    hostname=192.168.60.155
+    user=hscroot
+    password= SECRET1
+    ihost=influxdb.server.acme.com
+    iport=8086
+    iuser=admin
+    ipassword=SECRET2
+    idbname=nextract
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: nextract-injector
+  namespace: openshift-monitoring
+label: 
+  app: nextract-monitoring
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: nextract-python
+              image: nextract:10.1
+              args:
+                - /nextract_server.py
+              envFrom:
+              - configMapRef:
+                    name: nexctract-config
+          restartPolicy: OnFailure
