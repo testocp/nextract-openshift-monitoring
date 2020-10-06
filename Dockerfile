@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar \
 && tar xvf nextract_${version}.tar
 
-CMD ["python"]
+CMD ["python3"]
