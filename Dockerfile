@@ -12,9 +12,9 @@ RUN ls -la
 
 RUN whoami
 
-RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar 
+RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar -P /tmp
 
-RUN ls -la
+RUN ls -la /tmp
 
 RUN tar xvf nextract_${version}.tar
 
