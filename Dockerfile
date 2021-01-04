@@ -6,8 +6,7 @@ WORKDIR /scripts
 COPY scripts/requirements.txt .
 RUN pip install -r requirements.txt
 
-RUN mkdir -p /nag && cd nag \
-    wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar \
+RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar \
 && tar xvf nextract_${version}.tar
 
 RUN chgrp -R 0 /nag && \
