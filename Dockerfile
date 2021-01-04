@@ -12,7 +12,7 @@ RUN ls -la
 
 RUN whoami
 
-RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar -P /tmp
+RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar 
 
 RUN ls -la /tmp
 
