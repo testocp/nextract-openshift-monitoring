@@ -18,6 +18,8 @@ RUN ls -la /tmp
 
 RUN chmod +x /tmp/nextract_${version}.tar
 
+RUN ls -la /tmp
+
 RUN tar xvf /tmp/nextract_${version}.tar
 
 CMD ["python3"]
