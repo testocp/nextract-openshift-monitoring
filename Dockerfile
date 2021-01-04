@@ -12,15 +12,12 @@ RUN ls -la
 
 RUN whoami
 
-RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar 
+RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar -P /tmp
 
 RUN ls -la /tmp
 
-RUN tar xvf nextract_${version}.tar
+RUN chmod +x /tmp/nextract_${version}.tar
 
-RUN chgrp -R 0 /tmp && \
-      chmod -R g=u /tmp
-
-USER 1001
+RUN tar xvf /tmp/nextract_${version}.tar
 
 CMD ["python3"]
