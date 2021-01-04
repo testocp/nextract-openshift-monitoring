@@ -16,7 +16,7 @@ RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/next
 
 RUN ls -la /tmp
 
-RUN chmod +x /tmp/nextract_${version}.tar
+RUN chmod 777 /tmp/nextract_${version}.tar
 
 RUN ls -la /tmp
 
