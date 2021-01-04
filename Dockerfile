@@ -6,7 +6,7 @@ WORKDIR /scripts
 COPY scripts/requirements.txt .
 RUN pip install -r requirements.txt
 
-RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar -o /tmp \
+RUN wget http://public.dhe.ibm.com/systems/power/community/aix/AIXpert_Blog/nextract_${version}.tar -P /tmp \
 && tar xvf nextract_${version}.tar
 
 CMD ["python3"]
